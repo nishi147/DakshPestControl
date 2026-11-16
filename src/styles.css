@@ -1308,6 +1308,39 @@
   flex-shrink: 0;
 }
 
+.footer-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.footer-pin {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--orange-lt);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.footer-address-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.footer-company-name {
+  color: #fff !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -1408,26 +1441,66 @@
 
 /* ── Tablet (≤860px) ── */
 @media (max-width: 860px) {
-  /* Hero: stack layout, hide right image panel */
+  /* Hero: stack layout, keep hero image panel prominent and visible */
   .dpc-hero {
     flex-direction: column;
-    justify-content: flex-end;
-    min-height: 88vh;
+    justify-content: flex-start;
+    min-height: auto;
     align-items: stretch;
+    padding-bottom: 2rem;
   }
-  .hero-img-panel {
-    display: none;
-  }
-  .hero-infocard {
-    display: none;
+  .hero-img {
+    object-position: center top;
   }
   .hero-overlay {
     background:
-      linear-gradient(0deg, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.6) 55%, rgba(13,27,42,0.3) 100%);
+      linear-gradient(180deg, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.95) 60%, rgba(13,27,42,0.98) 100%);
   }
   .hero-content {
-    padding: 4rem 2rem 3.5rem;
+    padding: 3.5rem 1.75rem 1.5rem;
     max-width: 100%;
+  }
+
+  /* Show hero image panel on tablet & mobile */
+  .hero-img-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.75rem 2rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .hero-img-frame {
+    width: 100%;
+    max-width: 440px;
+  }
+  .hero-panel-img {
+    width: 100%;
+    height: clamp(230px, 45vw, 340px);
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 18px;
+    box-shadow:
+      0 0 0 3px rgba(234, 88, 12, 0.45),
+      0 18px 45px rgba(0, 0, 0, 0.5);
+  }
+  .hero-img-badge-wrap {
+    bottom: -0.85rem;
+    left: 0.75rem;
+  }
+  .hero-img-badge {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  /* Info card below image */
+  .hero-img-panel .hero-infocard {
+    display: flex;
+    width: 100%;
+    max-width: 440px;
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
   }
 
   /* Services: 2-col */
@@ -1462,44 +1535,68 @@
 @media (max-width: 640px) {
   /* Header */
   .dpc-header {
-    min-height: 4rem;
-    padding-inline: 1rem;
+    min-height: 3.8rem;
+    padding: 0.5rem 0.85rem;
+    gap: 0.5rem;
+  }
+  .dpc-logo {
+    min-width: 0;
+    gap: 0.45rem;
+  }
+  .dpc-logo-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 8px;
+  }
+  .dpc-logo-icon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  .dpc-logo-name {
+    font-size: 0.95rem;
   }
   .dpc-nav {
     display: none;
   }
   .dpc-hctas {
     gap: 0.35rem;
+    flex-shrink: 0;
   }
   .hcta-call,
   .hcta-wa {
-    padding: 0.4rem 0.7rem;
+    padding: 0.42rem 0.75rem;
     font-size: 0.74rem;
-    min-height: 2.3rem;
+    min-height: 2.2rem;
+    gap: 0.32rem;
+    flex-shrink: 0;
   }
   .hcta-call svg,
   .hcta-wa svg {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    flex-shrink: 0;
   }
 
   /* Hero */
   .dpc-hero {
-    min-height: 90vh;
+    min-height: auto;
+    padding-bottom: 2rem;
   }
   .hero-content {
-    padding: 2.5rem 1.25rem 2.5rem;
+    padding: 2.5rem 1rem 1.25rem;
   }
   .hero-content h1 {
-    font-size: clamp(2.2rem, 10vw, 3rem);
+    font-size: clamp(2rem, 9.5vw, 2.75rem);
   }
   .hero-content > p {
-    font-size: 0.95rem;
-    line-height: 1.65;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 1rem;
   }
   .hero-ctas {
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.65rem;
+    margin-top: 1.6rem;
   }
   .hero-ctas .btn-orange,
   .hero-ctas .btn-wa {
@@ -1507,24 +1604,45 @@
     justify-content: center;
   }
   .hero-trust {
-    gap: 0.75rem;
-    margin-top: 1.5rem;
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+  }
+  .hero-trust span {
+    font-size: 0.78rem;
   }
   .hero-pill {
     font-size: 0.68rem;
     padding: 0.35rem 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Hero image panel on mobile */
+  .hero-img-panel {
+    padding: 0 1rem 1.5rem;
+  }
+  .hero-img-frame {
+    max-width: 100%;
+  }
+  .hero-panel-img {
+    height: clamp(210px, 48vw, 280px);
+    border-radius: 14px;
+  }
+  .hero-img-panel .hero-infocard {
+    max-width: 100%;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1.25rem;
   }
 
   /* Ribbon */
   .dpc-ribbon {
-    padding: 0.85rem 1rem;
+    padding: 0.85rem 0.75rem;
     gap: 0;
   }
   .rdiv {
     display: none;
   }
   .dpc-ribbon > div {
-    padding: 0.3rem 0.6rem;
+    padding: 0.3rem 0.5rem;
     font-size: 0.7rem;
   }
   .dpc-ribbon svg {
@@ -1611,13 +1729,16 @@
   /* Contact CTA */
   .dpc-contact {
     padding-inline: 1.1rem;
+    padding-block: 4rem;
   }
   .contact-ctas {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
   .contact-ctas .btn-orange,
   .contact-ctas .btn-wa {
+    width: 100%;
     justify-content: center;
   }
   .contact-badges {
@@ -1639,18 +1760,25 @@
   .dpc-footer {
     padding-inline: 1.1rem;
     padding-top: 3rem;
+    padding-bottom: 5.5rem; /* Space for bottom floating bar */
   }
 
   /* Floating buttons */
   .dpc-float {
     bottom: 0.75rem;
     gap: 0.5rem;
+    width: calc(100% - 1.5rem);
+    max-width: 390px;
+    padding: 0;
   }
   .float-call,
   .float-wa {
-    min-height: 2.6rem;
-    padding: 0.55rem 1rem;
-    font-size: 0.8rem;
+    flex: 1;
+    justify-content: center;
+    min-height: 2.85rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   }
   .btn-orange,
   .btn-wa {
@@ -1667,29 +1795,51 @@
 
 /* ── Small phones (≤400px) ── */
 @media (max-width: 400px) {
-  .dpc-logo-name {
-    font-size: 1rem;
+  .dpc-header {
+    padding: 0.45rem 0.6rem;
+    gap: 0.35rem;
   }
-  .hcta-call span,
-  .hcta-wa span {
-    display: none;
+  .dpc-logo-icon {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .dpc-logo-name {
+    font-size: 0.88rem;
+  }
+  .dpc-hctas {
+    gap: 0.25rem;
+  }
+  .hcta-call,
+  .hcta-wa {
+    padding: 0.38rem 0.55rem;
+    font-size: 0.68rem;
+    min-height: 2rem;
+    gap: 0.25rem;
+  }
+  .hcta-call svg,
+  .hcta-wa svg {
+    width: 0.78rem;
+    height: 0.78rem;
   }
   .hero-content h1 {
-    font-size: clamp(1.9rem, 9vw, 2.5rem);
+    font-size: clamp(1.85rem, 8.5vw, 2.3rem);
   }
-  .dpc-ribbon > div span {
-    display: none;
+  .dpc-ribbon > div {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.4rem;
   }
   .stat-num {
     font-size: 1.75rem;
   }
   .dpc-float {
     gap: 0.4rem;
+    bottom: 0.5rem;
   }
   .float-call,
   .float-wa {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+    padding: 0.55rem 0.6rem;
+    min-height: 2.7rem;
   }
 }
 

@@ -188,11 +188,11 @@ function Index() {
           <a href="#contact">Contact</a>
         </nav>
         <div className="dpc-hctas">
-          <a href={CALL_LINK} className="hcta-call">
-            <Phone /> Call Now
+          <a href={CALL_LINK} className="hcta-call" title="Call Now">
+            <Phone /> <span>Call</span>
           </a>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="hcta-wa">
-            <MessageCircle /> WhatsApp
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="hcta-wa" title="WhatsApp Us">
+            <MessageCircle /> <span>WhatsApp</span>
           </a>
         </div>
       </header>
@@ -567,7 +567,7 @@ function Index() {
             <a href="#we-serve">Warehouses</a>
             <a href="#we-serve">Hospitals & Clinics</a>
           </div>
-          <div className="footer-col">
+          <div className="footer-col footer-col-contact">
             <h4>Contact Us</h4>
             <a href={CALL_LINK}>
               <Phone /> {PHONE}
@@ -575,9 +575,13 @@ function Index() {
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
               <MessageCircle /> WhatsApp Us
             </a>
-            <span>
-              <MapPin /> Available across the city
-            </span>
+            <div className="footer-address">
+              <MapPin className="footer-pin" />
+              <div className="footer-address-text">
+                <span className="footer-company-name">DAKSH PEST CONTROL SERVICES</span>
+                <span>C Block 109, Vishali Vitika, Jaipur, Rajasthan</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="footer-bottom">
