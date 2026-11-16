@@ -32,7 +32,7 @@ const CALL_LINK = `tel:+91${PHONE}`;
 
 /* ── Unsplash images (CDN, no API key needed) ── */
 const IMG = {
-  hero: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=1920&q=80",
+  hero: "/hero-pest-control.jpg",
   heroPest: "/hero-pest-control.jpg",
   cockroach: "/svc-cockroach.jpg",
   mosquito: "/svc-mosquito.png",
